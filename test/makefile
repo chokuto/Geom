@@ -1,7 +1,7 @@
 TARGET = test
 OBJECTS = test.obj
 
-CPPFLAGS = /nologo /EHsc /c /I../include
+CPPFLAGS = /nologo /W4 /EHsc /c /I../include
 LINKFLAGS = /nologo /LTCG /subsystem:console /out:$(TARGET).exe
 LIBS = gmock_main.lib gmock.lib
 
