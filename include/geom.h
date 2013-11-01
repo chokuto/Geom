@@ -40,6 +40,22 @@ Vector2T<T>& Vector2T<T>::operator-=(const Vector2T<T>& vec)
 	return *this;
 }
 
+template<typename T>
+Vector2T<T> operator+(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
+{
+	Vector2T<T> result(vec1);
+	result += vec2;
+	return result;
+}
+
+template<typename T>
+Vector2T<T> operator-(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
+{
+	Vector2T<T> result(vec1);
+	result -= vec2;
+	return result;
+}
+
 
 typedef Vector2T<float>  Vector2f;
 typedef Vector2T<double> Vector2d;
