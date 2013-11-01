@@ -5,18 +5,20 @@ namespace Geom {
 #pragma warning(push)
 #pragma warning(disable: 4201)
 
-struct Vector2f {
+template<typename T>
+struct Vector2T {
 	union {
-		float v[2];
+		T v[2];
 		struct {
-			float x;
-			float y;
+			T x;
+			T y;
 		};
 	};
 };
 
 #pragma warning(pop)
 
-
+typedef Vector2T<float>  Vector2f;
+typedef Vector2T<double> Vector2d;
 
 }
