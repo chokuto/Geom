@@ -34,8 +34,8 @@ TEST(GeomVecter2dTest,AdditionAssginment)
 	Geom::Vector2d vec1(1.0, 2.0);
 	Geom::Vector2d vec2(3.0, 5.0);
 	vec1 += vec2;
-	EXPECT_EQ(4.0f, vec1.x);
-	EXPECT_EQ(7.0f, vec1.y);
+	EXPECT_EQ(4.0, vec1.x);
+	EXPECT_EQ(7.0, vec1.y);
 }
 
 TEST(GeomVecter2dTest,SubtractionAssginment)
@@ -43,7 +43,7 @@ TEST(GeomVecter2dTest,SubtractionAssginment)
 	Geom::Vector2d vec1(1.0, 2.0);
 	Geom::Vector2d vec2(3.0, 5.0);
 	vec2 -= vec1;
-	EXPECT_EQ(2.0f, vec2.x);
-	EXPECT_EQ(3.0f, vec2.y);
+	EXPECT_EQ(2.0, vec2.x);
+	EXPECT_EQ(3.0, vec2.y);
 }
 
