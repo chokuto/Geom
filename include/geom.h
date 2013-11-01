@@ -15,6 +15,9 @@ struct Vector2T {
 		};
 	};
 
+	Vector2T() {}
+	Vector2T(T x0, T y0) : x(x0), y(y0) {}
+
 	Vector2T& operator+=(const Vector2T& vec);
 	Vector2T& operator-=(const Vector2T& vec);
 };
