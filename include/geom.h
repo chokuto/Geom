@@ -14,9 +14,29 @@ struct Vector2T {
 			T y;
 		};
 	};
+
+	Vector2T& operator+=(const Vector2T& vec);
+	Vector2T& operator-=(const Vector2T& vec);
 };
 
 #pragma warning(pop)
+
+template<typename T>
+Vector2T<T>& Vector2T<T>::operator+=(const Vector2T<T>& vec)
+{
+	x += vec.x;
+	y += vec.y;
+	return *this;
+}
+
+template<typename T>
+Vector2T<T>& Vector2T<T>::operator-=(const Vector2T<T>& vec)
+{
+	x -= vec.x;
+	y -= vec.y;
+	return *this;
+}
+
 
 typedef Vector2T<float>  Vector2f;
 typedef Vector2T<double> Vector2d;
