@@ -29,7 +29,7 @@ TEST(GeomVecter2dTest,AccessWithIndices)
 	EXPECT_EQ(2.0, vec.v[1]);
 }
 
-TEST(GeomVecter2dTest,AdditionAssginment)
+TEST(GeomVecter2dTest,AdditionAssignment)
 {
 	Geom::Vector2d vec1(1.0, 2.0);
 	Geom::Vector2d vec2(3.0, 5.0);
@@ -38,7 +38,7 @@ TEST(GeomVecter2dTest,AdditionAssginment)
 	EXPECT_EQ(7.0, vec1.y);
 }
 
-TEST(GeomVecter2dTest,SubtractionAssginment)
+TEST(GeomVecter2dTest,SubtractionAssignment)
 {
 	Geom::Vector2d vec1(1.0, 2.0);
 	Geom::Vector2d vec2(3.0, 5.0);
