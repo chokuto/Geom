@@ -65,4 +65,11 @@ TEST(GeomVecter2dTest,Subtraction)
 	EXPECT_EQ(3.0, result.y);
 }
 
+TEST(GeomVecter2dTest,DotProduct)
+{
+	Geom::Vector2d vec1(1.0, 2.0);
+	Geom::Vector2d vec2(3.0, 5.0);
+	EXPECT_EQ(13.0, DotProduct(vec1, vec2));
+}
+
 
