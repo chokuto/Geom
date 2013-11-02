@@ -47,6 +47,22 @@ TEST(GeomVecter2dTest,SubtractionAssginment)
 	EXPECT_EQ(3.0, vec2.y);
 }
 
+TEST(GeomVecter2dTest,MultiplicationAssignment)
+{
+	Geom::Vector2d vec(1.0, 2.0);
+	vec *= 1.5;
+	EXPECT_EQ(1.5, vec.x);
+	EXPECT_EQ(3.0, vec.y);
+}
+
+TEST(GeomVecter2dTest,DivisionAssignment)
+{
+	Geom::Vector2d vec(1.0, 2.0);
+	vec /= 4.0;
+	EXPECT_EQ(0.25, vec.x);
+	EXPECT_EQ(0.5, vec.y);
+}
+
 TEST(GeomVecter2dTest,Addition)
 {
 	Geom::Vector2d vec1(1.0, 2.0);

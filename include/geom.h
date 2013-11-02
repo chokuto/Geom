@@ -20,6 +20,9 @@ struct Vector2T {
 
 	Vector2T& operator+=(const Vector2T& vec);
 	Vector2T& operator-=(const Vector2T& vec);
+
+	Vector2T& operator*=(T multiplier);
+	Vector2T& operator/=(T divisor);
 };
 
 #pragma warning(pop)
@@ -37,6 +40,22 @@ Vector2T<T>& Vector2T<T>::operator-=(const Vector2T<T>& vec)
 {
 	x -= vec.x;
 	y -= vec.y;
+	return *this;
+}
+
+template<typename T>
+Vector2T<T>& Vector2T<T>::operator*=(T multiplier)
+{
+	x *= multiplier;
+	y *= multiplier;
+	return *this;
+}
+
+template<typename T>
+Vector2T<T>& Vector2T<T>::operator/=(T divisor)
+{
+	x /= divisor;
+	y /= divisor;
 	return *this;
 }
 
