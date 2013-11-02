@@ -72,4 +72,10 @@ TEST(GeomVecter2dTest,DotProduct)
 	EXPECT_EQ(13.0, DotProduct(vec1, vec2));
 }
 
+TEST(GeomVecter2dTest,CrossProduct2D)
+{
+	Geom::Vector2d vec1(2.0, 3.0);
+	Geom::Vector2d vec2(4.0, 5.0);
+	EXPECT_EQ(-2.0, CrossProduct2D(vec1, vec2));
+}
 

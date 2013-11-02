@@ -62,6 +62,12 @@ T DotProduct(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
 	return (vec1.x * vec2.x) + (vec1.y * vec2.y);
 }
 
+template<typename T>
+T CrossProduct2D(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
+{
+	return (vec1.x * vec2.y) - (vec1.y * vec2.x);
+}
+
 typedef Vector2T<float>  Vector2f;
 typedef Vector2T<double> Vector2d;
 
