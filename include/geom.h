@@ -75,26 +75,26 @@ Vector2T<T> operator-(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
 	return result;
 }
 
-template<typename T>
-Vector2T<T> operator*(const Vector2T<T>& vec, T multiplier)
+template<typename T1, typename T2>
+Vector2T<T1> operator*(const Vector2T<T1>& vec, T2 multiplier)
 {
-	Vector2T<T> result(vec);
+	Vector2T<T1> result(vec);
 	result *= multiplier;
 	return result;
 }
 
-template<typename T>
-Vector2T<T> operator*(T multiplier, const Vector2T<T>& vec)
+template<typename T1, typename T2>
+Vector2T<T2> operator*(T1 multiplier, const Vector2T<T2>& vec)
 {
-	Vector2T<T> result(vec);
+	Vector2T<T2> result(vec);
 	result *= multiplier;
 	return result;
 }
 
-template<typename T>
-Vector2T<T> operator/(const Vector2T<T>& vec, T multiplier)
+template<typename T1, typename T2>
+Vector2T<T1> operator/(const Vector2T<T1>& vec, T2 multiplier)
 {
-	Vector2T<T> result(vec);
+	Vector2T<T1> result(vec);
 	result /= multiplier;
 	return result;
 }

@@ -81,26 +81,26 @@ TEST(GeomVecter2dTest,Subtraction)
 	EXPECT_EQ(3.0, result.y);
 }
 
-TEST(GeomVecter2dTest,Multiplication1)
+TEST(GeomVecter2dTest,Multiplication)
 {
-	Geom::Vector2d vec(1.0, 2.0);
-	Geom::Vector2d result = vec * 1.5;
-	EXPECT_EQ(1.5, result.x);
-	EXPECT_EQ(3.0, result.y);
+	Geom::Vector2d vec(1.2, 2.0);
+	Geom::Vector2d result = vec * 2;
+	EXPECT_EQ(2.4, result.x);
+	EXPECT_EQ(4.0, result.y);
 }
 
 TEST(GeomVecter2dTest,Multiplication2)
 {
-	Geom::Vector2d vec(1.0, 2.0);
-	Geom::Vector2d result = 1.5 * vec;
-	EXPECT_EQ(1.5, result.x);
-	EXPECT_EQ(3.0, result.y);
+	Geom::Vector2d vec(1.2, 2.0);
+	Geom::Vector2d result = 2 * vec;
+	EXPECT_EQ(2.4, result.x);
+	EXPECT_EQ(4.0, result.y);
 }
 
 TEST(GeomVecter2dTest,Division)
 {
 	Geom::Vector2d vec(1.0, 2.0);
-	Geom::Vector2d result = vec / 4.0;
+	Geom::Vector2d result = vec / 4;
 	EXPECT_EQ(0.25, result.x);
 	EXPECT_EQ(0.5, result.y);
 }
