@@ -76,6 +76,30 @@ Vector2T<T> operator-(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
 }
 
 template<typename T>
+Vector2T<T> operator*(const Vector2T<T>& vec, T multiplier)
+{
+	Vector2T<T> result(vec);
+	result *= multiplier;
+	return result;
+}
+
+template<typename T>
+Vector2T<T> operator*(T multiplier, const Vector2T<T>& vec)
+{
+	Vector2T<T> result(vec);
+	result *= multiplier;
+	return result;
+}
+
+template<typename T>
+Vector2T<T> operator/(const Vector2T<T>& vec, T multiplier)
+{
+	Vector2T<T> result(vec);
+	result /= multiplier;
+	return result;
+}
+
+template<typename T>
 T DotProduct(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
 {
 	return (vec1.x * vec2.x) + (vec1.y * vec2.y);
