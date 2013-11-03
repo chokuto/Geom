@@ -15,7 +15,7 @@ TEST(GeomVecter2fTest,AccessWithIndices)
 	EXPECT_EQ(2.0f, vec.v[1]);
 }
 
-TEST(GeomVecter2gTest,AccessXY)
+TEST(GeomVecter2dTest,AccessXY)
 {
 	Geom::Vector2d vec(1.0, 2.0);
 	EXPECT_EQ(1.0, vec.x);
