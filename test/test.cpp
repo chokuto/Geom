@@ -131,3 +131,24 @@ TEST(GeomVecter2dTest,LengthSquared)
 	EXPECT_EQ(25.0, vec.LengthSquared());
 }
 
+TEST(GeomVecter2dTest,EqualityOperator)
+{
+	Geom::Vector2d vec1(-3.0, 4.0);
+	Geom::Vector2d vec2(-3.0, 4.0);
+	EXPECT_TRUE(vec1 == vec2);
+}
+
+TEST(GeomVecter2dTest,InequalityOperator1)
+{
+	Geom::Vector2d vec1(-3.0, 5.0);
+	Geom::Vector2d vec2(-3.0, 4.0);
+	EXPECT_TRUE(vec1 != vec2);
+}
+
+TEST(GeomVecter2dTest,InequalityOperator2)
+{
+	Geom::Vector2d vec1(3.0, 4.0);
+	Geom::Vector2d vec2(-3.0, 4.0);
+	EXPECT_TRUE(vec1 != vec2);
+}
+

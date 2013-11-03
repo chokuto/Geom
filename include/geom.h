@@ -115,6 +115,18 @@ Vector2T<T1> operator/(const Vector2T<T1>& vec, T2 multiplier)
 }
 
 template<typename T>
+bool operator==(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
+{
+	return (vec1.x == vec2.x) && (vec1.y == vec2.y);
+}
+
+template<typename T>
+bool operator!=(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
+{
+	return !(vec1 == vec2);
+}
+
+template<typename T>
 T DotProduct(const Vector2T<T>& vec1, const Vector2T<T>& vec2)
 {
 	return (vec1.x * vec2.x) + (vec1.y * vec2.y);
