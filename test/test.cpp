@@ -152,3 +152,18 @@ TEST(GeomVecter2dTest,InequalityOperator2)
 	EXPECT_TRUE(vec1 != vec2);
 }
 
+TEST(GeomVecter2dTest,CopyConstructor)
+{
+	Geom::Vector2d vec1(3.0, 4.0);
+	Geom::Vector2d vec2(vec1);
+	EXPECT_EQ(vec2, vec1);
+}
+
+TEST(GeomVecter2dTest,Assingment)
+{
+	Geom::Vector2d vec1(3.0, 4.0);
+	Geom::Vector2d vec2;
+	vec2 = vec1;
+	EXPECT_EQ(vec2, vec1);
+}
+
