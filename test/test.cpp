@@ -159,7 +159,7 @@ TEST(GeomVecter2dTest,CopyConstructor)
 	EXPECT_EQ(vec2, vec1);
 }
 
-TEST(GeomVecter2dTest,Assingment)
+TEST(GeomVecter2dTest,Assignment)
 {
 	Geom::Vector2d vec1(3.0, 4.0);
 	Geom::Vector2d vec2;
