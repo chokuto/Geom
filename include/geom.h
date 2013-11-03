@@ -21,9 +21,10 @@ struct Vector2T {
 	T Length() const;
 	T LengthSquared() const;
 
+	Vector2T operator+() const;
+	Vector2T operator-() const;
 	Vector2T& operator+=(const Vector2T& vec);
 	Vector2T& operator-=(const Vector2T& vec);
-
 	Vector2T& operator*=(T multiplier);
 	Vector2T& operator/=(T divisor);
 };
@@ -40,6 +41,18 @@ template<typename T>
 T Vector2T<T>::Length() const
 {
 	return std::sqrt(LengthSquared());
+}
+
+template<typename T>
+Vector2T<T> Vector2T<T>::operator+() const
+{
+	return *this;
+}
+
+template<typename T>
+Vector2T<T> Vector2T<T>::operator-() const
+{
+	return Vector2T<T>(-x, -y);
 }
 
 template<typename T>

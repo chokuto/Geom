@@ -167,3 +167,16 @@ TEST(GeomVecter2dTest,Assignment)
 	EXPECT_EQ(vec2, vec1);
 }
 
+TEST(GeomVecter2dTest,UnaryPlusOperator)
+{
+	Geom::Vector2d vec(-3.0, 4.0);
+	EXPECT_EQ(vec, +vec);
+}
+
+TEST(GeomVecter2dTest,UnaryNegationOperator)
+{
+	Geom::Vector2d vec1(-3.0, 4.0);
+	Geom::Vector2d vec2(3.0, -4.0);
+	EXPECT_EQ(vec2, -vec1);
+}
+
