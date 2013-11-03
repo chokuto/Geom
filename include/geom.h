@@ -18,6 +18,9 @@ struct Vector2T {
 	Vector2T() {}
 	Vector2T(T x0, T y0) : x(x0), y(y0) {}
 
+	T Length() const;
+	T LengthSquared() const;
+
 	Vector2T& operator+=(const Vector2T& vec);
 	Vector2T& operator-=(const Vector2T& vec);
 
@@ -26,6 +29,18 @@ struct Vector2T {
 };
 
 #pragma warning(pop)
+
+template<typename T>
+T Vector2T<T>::LengthSquared() const
+{
+	return (x * x) + (y * y);
+}
+
+template<typename T>
+T Vector2T<T>::Length() const
+{
+	return std::sqrt(LengthSquared());
+}
 
 template<typename T>
 Vector2T<T>& Vector2T<T>::operator+=(const Vector2T<T>& vec)

@@ -119,3 +119,15 @@ TEST(GeomVecter2dTest,CrossProduct2D)
 	EXPECT_EQ(-2.0, CrossProduct2D(vec1, vec2));
 }
 
+TEST(GeomVecter2dTest,Length)
+{
+	Geom::Vector2d vec(-3.0, 4.0);
+	EXPECT_EQ(5.0, vec.Length());
+}
+
+TEST(GeomVecter2dTest,LengthSquared)
+{
+	Geom::Vector2d vec(-3.0, 4.0);
+	EXPECT_EQ(25.0, vec.LengthSquared());
+}
+
