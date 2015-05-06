@@ -28,3 +28,22 @@ CGeomVector<T,3> CrossProduct3D(const CGeomVector<T,3>& vec1, const CGeomVector<
 		(vec1.z * vec2.x) - (vec1.x * vec2.z),
 		(vec1.x * vec2.y) - (vec1.y * vec2.x));
 }
+
+/** 2次元空間ベクトルの回転計算(反時計回り) */
+template<typename T>
+CGeomVector<T,2> Rotate2D(const CGeomVector<T,2>& vec, T angleInRadians)
+{
+	T cosA = std::cos(angleInRadians);
+	T sinA = std::sin(angleInRadians);
+	return CGeomVector<T,2>(
+		(vec.x * cosA) - (vec.y * sinA),
+		(vec.x * sinA) + (vec.y * cosA));
+}
+
+/** 2次元ベクトルのなす角を計算 (vec1からvec2へ反時計回り) */
+template<typename T>
+T Angle2D(const CGeomVector<T,2>& vec1, const CGeomVector<T,2>& vec2)
+{
+	// atan2(A×B, A・B) として計算
+	return std::atan2(CrossProduct2D(vec1, vec2), DotProduct(vec1, vec2));
+}

@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include <gtest/gtest.h>
 #include "GeomVector.h"
 #include "GeomVectorUtil.h"
@@ -144,20 +145,6 @@ TEST(GeomVecter2dTest,Division2)
 	CGeomVector2d result = vec / 4.0;
 	EXPECT_EQ(0.25, result.x);
 	EXPECT_EQ(0.5, result.y);
-}
-
-TEST(GeomVecter2dTest,DotProduct)
-{
-	CGeomVector2d vec1(1.0, 2.0);
-	CGeomVector2d vec2(3.0, 5.0);
-	EXPECT_EQ(13.0, DotProduct(vec1, vec2));
-}
-
-TEST(GeomVecter2dTest,CrossProduct2D)
-{
-	CGeomVector2d vec1(2.0, 3.0);
-	CGeomVector2d vec2(4.0, 5.0);
-	EXPECT_EQ(-2.0, CrossProduct2D(vec1, vec2));
 }
 
 TEST(GeomVecter2dTest,Length)
@@ -317,4 +304,41 @@ TEST(GeomVecterNdTest,Length)
 	vec.v[3] = 17.0;
 
 	EXPECT_EQ(18.0, vec.Length());
+}
+
+TEST(GeomVecterUtil,DotProduct)
+{
+	CGeomVector2d vec1(1.0, 2.0);
+	CGeomVector2d vec2(3.0, 5.0);
+	EXPECT_DOUBLE_EQ(13.0, DotProduct(vec1, vec2));
+}
+
+TEST(GeomVecterUtil,CrossProduct2D)
+{
+	CGeomVector2d vec1(2.0, 3.0);
+	CGeomVector2d vec2(4.0, 5.0);
+	EXPECT_DOUBLE_EQ(-2.0, CrossProduct2D(vec1, vec2));
+}
+
+TEST(GeomVecterUtil,Rotate2D)
+{
+	CGeomVector2d vec(2.0, 3.0);
+	CGeomVector2d result = Rotate2D(vec, 90 * M_PI / 180);
+	EXPECT_DOUBLE_EQ(-3.0, result.x);
+	EXPECT_DOUBLE_EQ(2.0, result.y);
+}
+
+TEST(GeomVecterUtil,Rotate2D2)
+{
+	CGeomVector2d vec(2.0, 3.0);
+	CGeomVector2d result = Rotate2D(vec, -90 * M_PI / 180);
+	EXPECT_DOUBLE_EQ(3.0, result.x);
+	EXPECT_DOUBLE_EQ(-2.0, result.y);
+}
+
+TEST(GeomVecterUtil,Angle2D)
+{
+	CGeomVector2d vec1(2.0, 3.0);
+	CGeomVector2d vec2(3.0, -2.0);
+	EXPECT_DOUBLE_EQ(-90 * M_PI / 180, Angle2D(vec1, vec2));
 }
