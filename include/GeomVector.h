@@ -53,6 +53,11 @@ struct CGeomVector<T,1> {
 	}
 };
 
+/** 1次元空間ベクトル (float) */
+typedef CGeomVector<float,1>  CGeomVector1f;
+/** 1次元空間ベクトル (double) */
+typedef CGeomVector<double,1> CGeomVector1d;
+
 /** 空間ベクトルクラス (2次元特殊化) */
 template<typename T>
 struct CGeomVector<T,2> {
@@ -82,6 +87,11 @@ struct CGeomVector<T,2> {
 	}
 };
 
+/** 2次元空間ベクトル (float) */
+typedef CGeomVector<float,2>  CGeomVector2f;
+/** 2次元空間ベクトル (double) */
+typedef CGeomVector<double,2> CGeomVector2d;
+
 /** 空間ベクトルクラス (3次元特殊化) */
 template<typename T>
 struct CGeomVector<T,3> {
@@ -110,6 +120,11 @@ struct CGeomVector<T,3> {
 		return std::sqrt(LengthSquared());
 	}
 };
+
+/** 3次元空間ベクトル (float) */
+typedef CGeomVector<float,3>  CGeomVector3f;
+/** 3次元空間ベクトル (double) */
+typedef CGeomVector<double,3> CGeomVector3d;
 
 #pragma warning(pop)
 
@@ -280,18 +295,3 @@ CGeomVector<T,3> CrossProduct3D(const CGeomVector<T,3>& vec1, const CGeomVector<
 		(vec1.z * vec2.x) - (vec1.x * vec2.z),
 		(vec1.x * vec2.y) - (vec1.y * vec2.x));
 }
-
-/** 1次元空間ベクトル (float) */
-typedef CGeomVector<float,1>  CGeomVector1f;
-/** 1次元空間ベクトル (double) */
-typedef CGeomVector<double,1> CGeomVector1d;
-
-/** 2次元空間ベクトル (float) */
-typedef CGeomVector<float,2>  CGeomVector2f;
-/** 2次元空間ベクトル (double) */
-typedef CGeomVector<double,2> CGeomVector2d;
-
-/** 3次元空間ベクトル (float) */
-typedef CGeomVector<float,3>  CGeomVector3f;
-/** 3次元空間ベクトル (double) */
-typedef CGeomVector<double,3> CGeomVector3d;
