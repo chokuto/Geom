@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <GeomVector.h>
+#include "GeomVector.h"
 
 TEST(GeomVecter2fTest,AccessXY)
 {
@@ -55,10 +55,26 @@ TEST(GeomVecter2dTest,MultiplicationAssignment)
 	EXPECT_EQ(3.0, vec.y);
 }
 
+TEST(GeomVecter2dTest,MultiplicationAssignment2)
+{
+	CGeomVector2d vec(1.0, 2.5);
+	vec *= 2;
+	EXPECT_EQ(2.0, vec.x);
+	EXPECT_EQ(5.0, vec.y);
+}
+
 TEST(GeomVecter2dTest,DivisionAssignment)
 {
 	CGeomVector2d vec(1.0, 2.0);
 	vec /= 4.0;
+	EXPECT_EQ(0.25, vec.x);
+	EXPECT_EQ(0.5, vec.y);
+}
+
+TEST(GeomVecter2dTest,DivisionAssignment2)
+{
+	CGeomVector2d vec(1.0, 2.0);
+	vec /= 4;
 	EXPECT_EQ(0.25, vec.x);
 	EXPECT_EQ(0.5, vec.y);
 }
@@ -92,7 +108,23 @@ TEST(GeomVecter2dTest,Multiplication)
 TEST(GeomVecter2dTest,Multiplication2)
 {
 	CGeomVector2d vec(1.2, 2.0);
+	CGeomVector2d result = vec * 2.0;
+	EXPECT_EQ(2.4, result.x);
+	EXPECT_EQ(4.0, result.y);
+}
+
+TEST(GeomVecter2dTest,Multiplication3)
+{
+	CGeomVector2d vec(1.2, 2.0);
 	CGeomVector2d result = 2 * vec;
+	EXPECT_EQ(2.4, result.x);
+	EXPECT_EQ(4.0, result.y);
+}
+
+TEST(GeomVecter2dTest,Multiplication4)
+{
+	CGeomVector2d vec(1.2, 2.0);
+	CGeomVector2d result = 2.0 * vec;
 	EXPECT_EQ(2.4, result.x);
 	EXPECT_EQ(4.0, result.y);
 }
@@ -101,6 +133,14 @@ TEST(GeomVecter2dTest,Division)
 {
 	CGeomVector2d vec(1.0, 2.0);
 	CGeomVector2d result = vec / 4;
+	EXPECT_EQ(0.25, result.x);
+	EXPECT_EQ(0.5, result.y);
+}
+
+TEST(GeomVecter2dTest,Division2)
+{
+	CGeomVector2d vec(1.0, 2.0);
+	CGeomVector2d result = vec / 4.0;
 	EXPECT_EQ(0.25, result.x);
 	EXPECT_EQ(0.5, result.y);
 }
@@ -180,3 +220,100 @@ TEST(GeomVecter2dTest,UnaryNegationOperator)
 	EXPECT_EQ(vec2, -vec1);
 }
 
+TEST(GeomVecter1fTest,AccessX)
+{
+	CGeomVector1f vec(1.0f);
+	EXPECT_EQ(1.0f, vec.x);
+}
+
+TEST(GeomVecter1fTest,AccessWithIndices)
+{
+	CGeomVector1f vec(1.0f);
+	EXPECT_EQ(1.0f, vec.v[0]);
+}
+
+TEST(GeomVecter1dTest,AccessX)
+{
+	CGeomVector1d vec(1.0);
+	EXPECT_EQ(1.0, vec.x);
+}
+
+TEST(GeomVecter1dTest,AccessWithIndices)
+{
+	CGeomVector1d vec(1.0);
+	EXPECT_EQ(1.0, vec.v[0]);
+}
+
+TEST(GeomVecter1dTest,Length)
+{
+	CGeomVector1d vec(-3.0);
+	EXPECT_EQ(3.0, vec.Length());
+}
+
+TEST(GeomVecter1dTest,LengthSquared)
+{
+	CGeomVector1d vec(-3.0);
+	EXPECT_EQ(9.0, vec.LengthSquared());
+}
+
+TEST(GeomVecter3fTest,AccessXYZ)
+{
+	CGeomVector3f vec(1.0f, 2.0f, 3.0f);
+	EXPECT_EQ(1.0f, vec.x);
+	EXPECT_EQ(2.0f, vec.y);
+	EXPECT_EQ(3.0f, vec.z);
+}
+
+TEST(GeomVecter3fTest,AccessWithIndices)
+{
+	CGeomVector3f vec(1.0f, 2.0f, 3.0f);
+	EXPECT_EQ(1.0f, vec.v[0]);
+	EXPECT_EQ(2.0f, vec.v[1]);
+	EXPECT_EQ(3.0f, vec.v[2]);
+}
+
+TEST(GeomVecter3dTest,AccessXYZ)
+{
+	CGeomVector3d vec(1.0, 2.0, 3.0);
+	EXPECT_EQ(1.0, vec.x);
+	EXPECT_EQ(2.0, vec.y);
+	EXPECT_EQ(3.0, vec.z);
+}
+
+TEST(GeomVecter3dTest,AccessWithIndices)
+{
+	CGeomVector3d vec(1.0, 2.0, 3.0);
+	EXPECT_EQ(1.0, vec.v[0]);
+	EXPECT_EQ(2.0, vec.v[1]);
+	EXPECT_EQ(3.0, vec.v[2]);
+}
+
+TEST(GeomVecter3dTest,Length)
+{
+	CGeomVector3d vec(1.0, -4.0, 8.0);
+	EXPECT_EQ(9.0, vec.Length());
+}
+
+TEST(GeomVecter3dTest,LengthSquared)
+{
+	CGeomVector3d vec(1.0, -4.0, 8.0);
+	EXPECT_EQ(81.0, vec.LengthSquared());
+}
+
+TEST(GeomVecter3dTest,CrossProduct3D)
+{
+	CGeomVector3d vec1(1.0, -2.0, 0.0);
+	CGeomVector3d vec2(-2.0, 1.0, -1.0);
+	EXPECT_EQ(CGeomVector3d(2.0, 1.0, -3.0), CrossProduct3D(vec1, vec2));
+}
+
+TEST(GeomVecterNdTest,Length)
+{
+	CGeomVector<double,4> vec;
+	vec.v[0] = 1.0;
+	vec.v[1] = 3.0;
+	vec.v[2] = 5.0;
+	vec.v[3] = 17.0;
+
+	EXPECT_EQ(18.0, vec.Length());
+}
