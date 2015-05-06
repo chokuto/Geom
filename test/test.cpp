@@ -3,6 +3,12 @@
 #include "GeomVector.h"
 #include "GeomVectorUtil.h"
 
+TEST(GeomVecter2fTest,Zero)
+{
+	CGeomVector2f vec(0.0f, 0.0f);
+	EXPECT_EQ(CGeomVector2f::Zero, vec);
+}
+
 TEST(GeomVecter2fTest,AccessXY)
 {
 	CGeomVector2f vec(1.0f, 2.0f);
@@ -15,6 +21,12 @@ TEST(GeomVecter2fTest,AccessWithIndices)
 	CGeomVector2f vec(1.0f, 2.0f);
 	EXPECT_EQ(1.0f, vec.v[0]);
 	EXPECT_EQ(2.0f, vec.v[1]);
+}
+
+TEST(GeomVecter2dTest,Zero)
+{
+	CGeomVector2d vec(0.0, 0.0);
+	EXPECT_EQ(CGeomVector2d::Zero, vec);
 }
 
 TEST(GeomVecter2dTest,AccessXY)
@@ -208,6 +220,12 @@ TEST(GeomVecter2dTest,UnaryNegationOperator)
 	EXPECT_EQ(vec2, -vec1);
 }
 
+TEST(GeomVecter1fTest,Zero)
+{
+	CGeomVector1f vec(0.0f);
+	EXPECT_EQ(CGeomVector1f::Zero, vec);
+}
+
 TEST(GeomVecter1fTest,AccessX)
 {
 	CGeomVector1f vec(1.0f);
@@ -218,6 +236,12 @@ TEST(GeomVecter1fTest,AccessWithIndices)
 {
 	CGeomVector1f vec(1.0f);
 	EXPECT_EQ(1.0f, vec.v[0]);
+}
+
+TEST(GeomVecter1dTest,Zero)
+{
+	CGeomVector1d vec(0.0);
+	EXPECT_EQ(CGeomVector1d::Zero, vec);
 }
 
 TEST(GeomVecter1dTest,AccessX)
@@ -244,6 +268,12 @@ TEST(GeomVecter1dTest,LengthSquared)
 	EXPECT_EQ(9.0, vec.LengthSquared());
 }
 
+TEST(GeomVecter3fTest,Zero)
+{
+	CGeomVector3f vec(0.0f, 0.0f, 0.0f);
+	EXPECT_EQ(CGeomVector3f::Zero, vec);
+}
+
 TEST(GeomVecter3fTest,AccessXYZ)
 {
 	CGeomVector3f vec(1.0f, 2.0f, 3.0f);
@@ -258,6 +288,12 @@ TEST(GeomVecter3fTest,AccessWithIndices)
 	EXPECT_EQ(1.0f, vec.v[0]);
 	EXPECT_EQ(2.0f, vec.v[1]);
 	EXPECT_EQ(3.0f, vec.v[2]);
+}
+
+TEST(GeomVecter3dTest,Zero)
+{
+	CGeomVector3d vec(0.0, 0.0, 0.0);
+	EXPECT_EQ(CGeomVector3d::Zero, vec);
 }
 
 TEST(GeomVecter3dTest,AccessXYZ)
@@ -293,6 +329,17 @@ TEST(GeomVecter3dTest,CrossProduct3D)
 	CGeomVector3d vec1(1.0, -2.0, 0.0);
 	CGeomVector3d vec2(-2.0, 1.0, -1.0);
 	EXPECT_EQ(CGeomVector3d(2.0, 1.0, -3.0), CrossProduct3D(vec1, vec2));
+}
+
+TEST(GeomVecterNdTest,Zero)
+{
+	CGeomVector<double,4> vec;
+	vec.v[0] = 0.0;
+	vec.v[1] = 0.0;
+	vec.v[2] = 0.0;
+	vec.v[3] = 0.0;
+
+	EXPECT_EQ((CGeomVector<double,4>::Zero), vec);
 }
 
 TEST(GeomVecterNdTest,Length)

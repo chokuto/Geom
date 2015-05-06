@@ -21,7 +21,13 @@ struct CGeomVector {
 	{
 		return std::sqrt(LengthSquared());
 	}
+
+	/** ゼロベクトル */
+	static const CGeomVector Zero;
 };
+
+template<typename T, size_t N>
+const CGeomVector<T,N> CGeomVector<T,N>::Zero = {};
 
 // 名前なしstruct/unionに対する警告を無視するため一時的に警告C4201を無効化
 #pragma warning(push)
@@ -51,7 +57,13 @@ struct CGeomVector<T,1> {
 	{
 		return std::sqrt(LengthSquared());
 	}
+
+	/** ゼロベクトル */
+	static const CGeomVector Zero;
 };
+
+template<typename T>
+const CGeomVector<T,1> CGeomVector<T,1>::Zero(0);
 
 /** 1次元空間ベクトル (float) */
 typedef CGeomVector<float,1>  CGeomVector1f;
@@ -85,7 +97,13 @@ struct CGeomVector<T,2> {
 	{
 		return std::sqrt(LengthSquared());
 	}
+
+	/** ゼロベクトル */
+	static const CGeomVector Zero;
 };
+
+template<typename T>
+const CGeomVector<T,2> CGeomVector<T,2>::Zero(0,0);
 
 /** 2次元空間ベクトル (float) */
 typedef CGeomVector<float,2>  CGeomVector2f;
@@ -119,7 +137,13 @@ struct CGeomVector<T,3> {
 	{
 		return std::sqrt(LengthSquared());
 	}
+
+	/** ゼロベクトル */
+	static const CGeomVector Zero;
 };
+
+template<typename T>
+const CGeomVector<T,3> CGeomVector<T,3>::Zero(0,0,0);
 
 /** 3次元空間ベクトル (float) */
 typedef CGeomVector<float,3>  CGeomVector3f;
