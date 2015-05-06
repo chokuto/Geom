@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "GeomVector.h"
+#include "GeomVectorUtil.h"
 
 TEST(GeomVecter2fTest,AccessXY)
 {
