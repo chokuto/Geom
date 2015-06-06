@@ -98,6 +98,22 @@ struct CGeomVector<T,2> {
 		return std::sqrt(LengthSquared());
 	}
 
+	/** 回転後ベクトル取得 */
+	CGeomVector<T,2> RotatedVector(double angleInRadians) const
+	{
+		T cosA = std::cos(angleInRadians);
+		T sinA = std::sin(angleInRadians);
+		return CGeomVector<T,2>(
+			(x * cosA) - (y * sinA),
+			(x * sinA) + (y * cosA));
+	}
+
+	/** 回転 */
+	void Rotate(double angleInRadians)
+	{
+		*this = RotatedVector(angleInRadians);
+	}
+
 	/** ゼロベクトル */
 	static const CGeomVector Zero;
 };
@@ -290,4 +306,40 @@ template<typename T, size_t N>
 bool operator!=(const CGeomVector<T,N>& vec1, const CGeomVector<T,N>& vec2)
 {
 	return !(vec1 == vec2);
+}
+
+/** 空間ベクトルの内積計算 */
+template<typename T, size_t N>
+T DotProduct(const CGeomVector<T,N>& vec1, const CGeomVector<T,N>& vec2)
+{
+	T result = 0;
+	for (size_t i = 0; i < N; ++i) {
+		result += vec1.v[i] * vec2.v[i];
+	}
+	return result;
+}
+
+/** 2次元空間ベクトルの外積計算 */
+template<typename T>
+T CrossProduct(const CGeomVector<T,2>& vec1, const CGeomVector<T,2>& vec2)
+{
+	return (vec1.x * vec2.y) - (vec1.y * vec2.x);
+}
+
+/** 3次元空間ベクトルの外積計算 */
+template<typename T>
+CGeomVector<T,3> CrossProduct(const CGeomVector<T,3>& vec1, const CGeomVector<T,3>& vec2)
+{
+	return CGeomVector<T,3>(
+		(vec1.y * vec2.z) - (vec1.z * vec2.y),
+		(vec1.z * vec2.x) - (vec1.x * vec2.z),
+		(vec1.x * vec2.y) - (vec1.y * vec2.x));
+}
+
+/** 2次元ベクトルのなす角を計算 (vec1からvec2へ反時計回り) */
+template<typename T>
+T AngleBetween(const CGeomVector<T,2>& vec1, const CGeomVector<T,2>& vec2)
+{
+	// atan2(A×B, A・B) として計算
+	return std::atan2(CrossProduct(vec1, vec2), DotProduct(vec1, vec2));
 }
