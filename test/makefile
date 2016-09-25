@@ -1,5 +1,5 @@
 TARGET = test
-OBJECTS = test.obj
+OBJECTS = test.obj median_test.obj
 
 CPPFLAGS = /nologo /W4 /EHsc /c /I../include
 LINKFLAGS = /nologo /LTCG /subsystem:console /out:$(TARGET).exe
