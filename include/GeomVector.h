@@ -4,6 +4,12 @@
 /** 空間ベクトルクラス (任意次元) */
 template<typename T, size_t N>
 struct CGeomVector {
+	typedef T value_type;
+	typedef T& reference;
+	typedef const T& const_reference;
+	typedef T* pointer;
+	typedef const T* const_pointer;
+
 	T v[N];			/**< 成分(配列表現) */
 
 	/** 長さの2乗計算 */
@@ -36,6 +42,12 @@ const CGeomVector<T,N> CGeomVector<T,N>::Zero = {};
 /** 空間ベクトルクラス (1次元特殊化) */
 template<typename T>
 struct CGeomVector<T,1> {
+	typedef T value_type;
+	typedef T& reference;
+	typedef const T& const_reference;
+	typedef T* pointer;
+	typedef const T* const_pointer;
+
 	union {
 		T v[1];		/**< 成分 (配列表現) */
 		T x;		/**< x成分 */
@@ -73,6 +85,12 @@ typedef CGeomVector<double,1> CGeomVector1d;
 /** 空間ベクトルクラス (2次元特殊化) */
 template<typename T>
 struct CGeomVector<T,2> {
+	typedef T value_type;
+	typedef T& reference;
+	typedef const T& const_reference;
+	typedef T* pointer;
+	typedef const T* const_pointer;
+
 	union {
 		T v[2];		/**< 成分(配列表現) */
 		struct {
@@ -129,6 +147,12 @@ typedef CGeomVector<double,2> CGeomVector2d;
 /** 空間ベクトルクラス (3次元特殊化) */
 template<typename T>
 struct CGeomVector<T,3> {
+	typedef T value_type;
+	typedef T& reference;
+	typedef const T& const_reference;
+	typedef T* pointer;
+	typedef const T* const_pointer;
+
 	union {
 		T v[3];		/**< 成分(配列表現) */
 		struct {
